@@ -1,0 +1,15 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "Estudo sobre construções de api's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ícaro Régis de Almeida",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
