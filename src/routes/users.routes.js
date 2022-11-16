@@ -22,8 +22,17 @@ const { Router } = require('express');
 const UsersControllers = require('../controllers/UsersControllers');
 
 const usersRoutes = Router();
+
+//middleware faz a verificação de permissões, se esta: logado, cadastrar um novo produto etc.
+//next => destino, para onde tem que seguir o fluxo
+function myMiddleware(request, response, next) {
+  //o next chama a próxima função para seguir o fluxo. Senão for passado ficará carregando eternamente.
+  next();
+}
+
 const usersControllers = new UsersControllers();
 
-usersRoutes.post('/', usersControllers.create);
+//antes de chamarmos a função create chamamos o "segurança" myMiddleware.
+usersRoutes.post('/', myMiddleware, usersControllers.create);
 
 module.exports = usersRoutes;
