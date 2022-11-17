@@ -1,15 +1,21 @@
 require('express-async-errors');
-
+const migrationsRun = require('./database/sqlite/migrations');
 const { json } = require('express');
+
 //aqui estamos exigindo que todas funcionalidades do express sejam armazenadas dentro dessa variável.
 const express = require('express');
 const routes = require('./routes');
+
+migrationsRun();
+
 const AppError = require('./utils/appError');
 
 //inicializando o express e atribuindo a variável criada com todas as funcionalidades do express a variável app.
 const app = express();
+
 //estou dizendo para o node usar o formato json
 app.use(express.json());
+
 app.use(routes);
 
 app.use((error, request, response, next) => {
