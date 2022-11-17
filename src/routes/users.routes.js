@@ -34,5 +34,6 @@ const usersControllers = new UsersControllers();
 
 //antes de chamarmos a função create chamamos o "segurança" myMiddleware.
 usersRoutes.post('/', myMiddleware, usersControllers.create);
+usersRoutes.put('/:id', myMiddleware, usersControllers.update);
 
 module.exports = usersRoutes;
